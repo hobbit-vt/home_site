@@ -1,316 +1,56 @@
-<style>
-body 
-{
-	font-family: Monospace;
-	font-weight: bold;
-	background-color: #ccccff;
-	margin: 0px;
-	overflow: hidden;
-}
-</style>
-<script src="http://stemkoski.github.io/Three.js/js/Three.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/Detector.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/Stats.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/OrbitControls.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/THREEx.KeyboardState.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/THREEx.FullScreen.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/THREEx.WindowResize.js"></script>
+<div ng-controller="mainCtrl">
 
-<!-- jQuery code to display an information button and box when clicked. -->
-<script src="http://stemkoski.github.io/Three.js/js/jquery-1.9.1.js"></script>
-<script src="http://stemkoski.github.io/Three.js/js/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://stemkoski.github.io/Three.js/css/jquery-ui.css">
-<link rel="stylesheet" href="http://stemkoski.github.io/Three.js/css/info.css">
-<script src="http://stemkoski.github.io/Three.js/js/info.js"></script>
-<div aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" style="z-index: 2; background: none repeat scroll 0% 0% transparent; opacity: 0.9; position: absolute; top: 4px; left: 4px;" id="infoButton"><span class="ui-button-text"><img src="Shapes%20%28Three.js%29_files/icon-info.png" height="32" width="32"></span></div>
-
-<!-- ------------------------------------------------------------ -->
-
-<div id="ThreeJS" style="position: absolute; left:0px; top:0px"><div style="cursor: pointer; width: 80px; opacity: 0.9; z-index: 100; position: absolute; bottom: 0px;"><div style="text-align: left; line-height: 1.2em; background-color: rgb(8, 8, 24); padding: 0px 0px 3px 3px; display: none;"><div style="font-family: Helvetica,Arial,sans-serif; font-size: 9px; color: rgb(0, 255, 255); font-weight: bold;">2 FPS (2-3)</div><div style="position: relative; width: 74px; height: 30px; background-color: rgb(0, 255, 255);"><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 30px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.4px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.1px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.1px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.4px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.4px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.1px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.1px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.1px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.4px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.1px; float: left; background-color: rgb(16, 16, 48);"></span><span style="width: 1px; height: 29.4px; float: left; background-color: rgb(16, 16, 48);"></span></div></div><div style="text-align: left; line-height: 1.2em; background-color: rgb(8, 24, 8); padding: 0px 0px 3px 3px; display: block;"><div style="font-family: Helvetica,Arial,sans-serif; font-size: 9px; color: rgb(0, 255, 0); font-weight: bold;">424 MS (279-596)</div><div style="position: relative; width: 74px; height: 30px; background-color: rgb(0, 255, 0);"><span style="width: 1px; height: 21.0923px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 21.161px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 22.9331px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 8.88402px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 24.6176px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 29.4189px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 23.5914px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 29.4811px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 12.5016px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 16.8659px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 25.5694px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 24.8248px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 7.36567px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 14.244px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 8.75404px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 25.3476px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 20.6612px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 15.0066px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.11909px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 21.5644px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 27.0251px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 16.4724px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 11.4664px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 14.6193px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 29.7756px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 7.791px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 27.0895px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 11.5706px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 3.77894px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 4.61379px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 9.26468px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 23.6607px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 23.3183px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.99251px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 5.71934px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 16.0432px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 21.1766px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 3.34682px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 27.7534px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 11.973px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.37144px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.2225px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 25.8626px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 7.17167px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 2.82807px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 15.3829px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 8.16807px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 20.6992px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 5.04655px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.14361px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 27.7359px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 21.0951px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 13.5935px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 15.6367px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.10614px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 8.02111px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 12.7744px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 7.02798px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 10.253px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 28.4758px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 8.09314px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 1.77593px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 26.4948px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 10.744px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 27.3385px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 14.0785px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 23.4563px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 12.2298px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 25.4814px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 19.6695px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 12.8942px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 6.77123px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 15.1178px; float: left; background-color: rgb(16, 48, 16);"></span><span style="width: 1px; height: 19.1649px; float: left; background-color: rgb(16, 48, 16);"></span></div></div></div></div>
-<script>
-/*
-	Three.js "tutorials by example"
-	Author: Lee Stemkoski
-	Date: July 2013 (three.js v59dev)
-*/
-
-// MAIN
-
-// standard global variables
-var container, scene, camera, renderer, controls, stats;
-var keyboard = new THREEx.KeyboardState();
-var clock = new THREE.Clock();
-// custom global variables
-var cube;
-
-init();
-animate();
-
-// FUNCTIONS 		
-function init() 
-{
-	// SCENE
-	scene = new THREE.Scene();
-	// CAMERA
-	var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
-	var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
-	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
-	scene.add(camera);
-	camera.position.set(0,150,400);
-	camera.lookAt(scene.position);	
-	// RENDERER
-	if ( Detector.webgl )
-		renderer = new THREE.WebGLRenderer( {antialias:true} );
-	else
-		renderer = new THREE.CanvasRenderer(); 
-	renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-	container = document.getElementById( 'ThreeJS' );
-	container.appendChild( renderer.domElement );
-	// EVENTS
-	THREEx.WindowResize(renderer, camera);
-	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
-	// CONTROLS
-	controls = new THREE.OrbitControls( camera, renderer.domElement );
-	// STATS
-	stats = new Stats();
-	stats.domElement.style.position = 'absolute';
-	stats.domElement.style.bottom = '0px';
-	stats.domElement.style.zIndex = 100;
-	container.appendChild( stats.domElement );
-	// LIGHT
-	var light = new THREE.PointLight(0xffffff);
-	light.position.set(0,250,0);
-	scene.add(light);
-	// FLOOR
-	var floorTexture = new THREE.ImageUtils.loadTexture( 'images/checkerboard.jpg' );
-	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
-	floorTexture.repeat.set( 10, 10 );
-	var floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture, side: THREE.DoubleSide } );
-	var floorGeometry = new THREE.PlaneGeometry(1000, 1000, 10, 10);
-	var floor = new THREE.Mesh(floorGeometry, floorMaterial);
-	floor.position.y = -0.5;
-	floor.rotation.x = Math.PI / 2;
-	scene.add(floor);
-	// SKYBOX/FOG
-	var skyBoxGeometry = new THREE.CubeGeometry( 10000, 10000, 10000 );
-	var skyBoxMaterial = new THREE.MeshBasicMaterial( { color: 0x9999ff, side: THREE.BackSide } );
-	var skyBox = new THREE.Mesh( skyBoxGeometry, skyBoxMaterial );
-	// scene.add(skyBox);
-	scene.fog = new THREE.FogExp2( 0x9999ff, 0.00025 );
-	
-	////////////
-	// CUSTOM //
-	////////////
-	
-	// Using wireframe materials to illustrate shape details.
-	var darkMaterial = new THREE.MeshBasicMaterial( { color: 0xffffcc } );
-	var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, transparent: true } ); 
-	var multiMaterial = [ darkMaterial, wireframeMaterial ]; 
-
-	///////////
-	// ROW 1 //
-	///////////
-	
-	// cube
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.CubeGeometry(50, 50, 50, 1, 1, 1), 
-		multiMaterial );
-	shape.position.set(-200, 50, 100);
-	scene.add( shape );
-
-	// icosahedron
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.IcosahedronGeometry( 40, 0 ), // radius, subdivisions
-		multiMaterial );
-	shape.position.set(-100, 50, 100);
-	scene.add( shape );
-
-	// octahedron
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.OctahedronGeometry( 40, 0 ), 
-		multiMaterial );
-	shape.position.set(0, 50, 100);
-	scene.add( shape );
-
-	// tetrahedron
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.TetrahedronGeometry( 40, 0 ), 
-		multiMaterial );
-	shape.position.set(100, 50, 100);
-	scene.add( shape );
-
-	// sphere
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.SphereGeometry( 40, 32, 16 ), 
-		multiMaterial );
-	shape.position.set(200, 50, 100);
-	scene.add( shape );
-	
-	///////////
-	// ROW 2 //
-	///////////
-	
-	// cube
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.CubeGeometry(50, 50, 50, 2, 2, 2), 
-		multiMaterial );
-	shape.position.set(-200, 50, 0);
-	scene.add( shape );
-
-	// icosahedron
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.IcosahedronGeometry( 40, 1 ), // radius, subdivisions
-		multiMaterial );
-	shape.position.set(-100, 50, 0);
-	scene.add( shape );
-
-	// octahedron
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.OctahedronGeometry( 40, 1 ), 
-		multiMaterial );
-	shape.position.set(0, 50, 0);
-	scene.add( shape );
-
-	// tetrahedron
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.TetrahedronGeometry( 40, 1 ), 
-		multiMaterial );
-	shape.position.set(100, 50, 0);
-	scene.add( shape );
-
-	// dome
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		new THREE.SphereGeometry( 40, 32, 16, 0, 2 * Math.PI, 0, Math.PI / 2 ), 
-		multiMaterial );
-	// should set material to doubleSided = true so that the 
-	//   interior view does not appear transparent.
-	shape.position.set(200, 50, 0);
-	scene.add( shape );
-	
-	///////////
-	// ROW 3 //
-	///////////
-	
-	// cylinder
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
-		new THREE.CylinderGeometry( 30, 30, 80, 20, 4 ), 
-		multiMaterial );
-	shape.position.set(-200, 50, -100);
-	scene.add( shape );
-	
-	// cone
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
-		new THREE.CylinderGeometry( 0, 30, 100, 20, 4 ), 
-		multiMaterial );
-	shape.position.set(-100, 50, -100);
-	scene.add( shape );
-	
-	// pyramid
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
-		new THREE.CylinderGeometry( 0, 30, 100, 4, 4 ), 
-		multiMaterial );
-	shape.position.set(0, 50, -100);
-	scene.add( shape );
-
-	// torus
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-	    // radius of entire torus, diameter of tube (less than total radius), 
-		// segments around radius, segments around torus ("sides")
-		new THREE.TorusGeometry( 25, 10, 8, 4 ),
-		multiMaterial );
-	shape.position.set(100, 50, -100);
-	scene.add( shape );
-
-	// torus knot
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// total knot radius, tube radius, number cylinder segments, sides per cyl. segment,
-		//  p-loops around torus, q-loops around torus
-		new THREE.TorusKnotGeometry( 30, 8, 60, 10, 2, 3 ), 
-		multiMaterial );
-	shape.position.set(200, 50, -100);
-	scene.add( shape );
-
-	///////////
-	// ROW 4 //
-	///////////
-	
-	// prism
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
-		new THREE.CylinderGeometry( 30, 30, 80, 6, 4 ), 
-		multiMaterial );
-	shape.position.set(-200, 50, -200);
-	scene.add( shape );
-	
-	// cone - truncated
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
-		new THREE.CylinderGeometry( 10, 30, 100, 20, 4 ), 
-		multiMaterial );
-	shape.position.set(-100, 50, -200);
-	scene.add( shape );
-	
-	// pyramid - truncated
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// radiusAtTop, radiusAtBottom, height, segmentsAroundRadius, segmentsAlongHeight,
-		new THREE.CylinderGeometry( 15, 30, 100, 6, 4 ), 
-		multiMaterial );
-	shape.position.set(0, 50, -200);
-	scene.add( shape );
-
-	// torus
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-	    // radius of entire torus, diameter of tube (less than total radius), 
-		// sides per cylinder segment, cylinders around torus ("sides")
-		new THREE.TorusGeometry( 30, 20, 16, 40 ),
-		multiMaterial );
-	shape.position.set(100, 50, -200);
-	scene.add( shape );
-
-	// torus knot
-	var shape = THREE.SceneUtils.createMultiMaterialObject( 
-		// total knot radius, tube radius, number cylinder segments, sides per cyl. segment,
-		//  p-loops around torus, q-loops around torus
-		new THREE.TorusKnotGeometry( 30, 6, 160, 10, 3, 7 ), 
-		multiMaterial );
-	shape.position.set(200, 50, -200);
-	scene.add( shape );
-	
-	
-
-}
-
-function animate() 
-{
-    requestAnimationFrame( animate );
-	render();		
-	update();
-}
-
-function update()
-{
-	if ( keyboard.pressed("z") ) 
-	{ 
-		// do something
-	}
-	
-	controls.update();
-	stats.update();
-}
-
-function render() 
-{
-	renderer.render( scene, camera );
-}
-
-</script>
+  <p>
+    Имя: {{mySelf.name}}
+  </p>
+  <p>
+    День рождения: {{mySelf.date_birth | format_date:"DD.MM.YYYY"}}
+  </p>
+  <p>
+    Город: {{mySelf.city}}
+  </p>
+  <p>
+    Phone: {{mySelf.phone}}
+  </p>
+  <p>
+    Email: {{mySelf.email}}
+  </p>
+  <p>
+    VK: <a href="{{mySelf.vk}}">{{mySelf.vk}}</a>
+  </p>
+  <p>
+    Технологии:
+      <ul>
+        <li ng-repeat="tech in mySelf.technologies">{{tech}}</li>
+      </ul>
+  </p>
+  <p>
+    Интересы:
+      <ul>
+        <li ng-repeat="interest in mySelf.interests">{{interest}}</li>
+      </ul>
+  </p>
+  <p>
+    Учеба:
+      <ul>
+        <li ng-repeat="study in mySelf.studies">
+          С {{study.from | format_date:"YYYY"}} по {{study.to | format_date:"YYYY"}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {{study.desc}}
+        </li>
+      </ul>
+  </p>
+  <p>
+    Учеба:
+      <ul>
+        <li ng-repeat="work in mySelf.works">
+          С {{work.from | format_date:"MMMM YYYY"}} по {{work.to | format_date:"MMMM YYYY"}}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Компания: {{work.name}}. Должность: {{work.profession}}. Обязаности: {{work.occupation}}
+        </li>
+      </ul>
+  </p>
 
 
 
-<div aria-labelledby="ui-id-1" aria-describedby="infoBox" role="dialog" tabindex="-1" style="display: none; position: absolute;" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-id-1">Demo Information</span><button title="close" aria-disabled="false" role="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span></button></div><div class="ui-dialog-content ui-widget-content" style="background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.5);" id="infoBox">
-This three.js demo is part of a collection at
-<a href="http://stemkoski.github.io/Three.js/">http://stemkoski.github.io/Three.js/</a>
-</div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-n"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-e"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-s"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-w"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-sw"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-ne"></div><div style="z-index: 90;" class="ui-resizable-handle ui-resizable-nw"></div></div>
+</div>

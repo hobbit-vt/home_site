@@ -43,3 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+#gem 'bson_ext'
+gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'

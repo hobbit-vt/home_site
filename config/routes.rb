@@ -1,7 +1,8 @@
 RubyBegin::Application.routes.draw do
   root 'home#index'
   
-  get "home/index"
+  get 'home/index'
+  get '/get_self', to: 'home#get_self'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
