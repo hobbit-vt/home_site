@@ -3,6 +3,11 @@ RubyBegin::Application.routes.draw do
   
   get 'home/index'
   get '/get_self', to: 'home#get_self'
+
+  get '/login', to: 'auth#index'
+  post '/login', to: 'auth#login'
+  get '/logout', to: 'auth#logout'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

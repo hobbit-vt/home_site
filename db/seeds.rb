@@ -56,3 +56,10 @@ study.desc = 'Ивановская государственная текстил
 study.my_self = mySelf
 
 study.save!
+
+
+user = User.new
+user.name = 'hobbit'
+user.pass = Digest::SHA1.hexdigest('q1q2q3q4')
+
+user.save!

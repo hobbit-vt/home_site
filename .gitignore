@@ -19,3 +19,5 @@
 *.keep
 *.project
 .idea/
+
+/public/assets/*.*
