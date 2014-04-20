@@ -70,21 +70,24 @@ mainApp.controller('adminCtrl', function($scope, $http) {
 
     $scope.update = function(){
 
-        var formData = angular.copy($scope.mySelf);/*
-        formData.date_birth = moment(formData.date_birth).toISOString();
+        var formData = angular.copy($scope.mySelf);
 
         var i;
 
         for(i = 0; i < formData.studies.length; i++) {
-            formData.studies[i].from = moment(formData.studies[i].from).toISOString();
-            formData.studies[i].to = moment(formData.studies[i].to).toISOString();
+            formData.studies[i].to =
+                    formData.studies[i].to === "Invalid date" ?
+                        "" :
+                        formData.studies[i].to;
         }
 
         for(i = 0; i < formData.works.length; i++) {
-            formData.works[i].from = moment(formData.works[i].from).toISOString();
-            formData.works[i].to = moment(formData.works[i].to).toISOString();
+            formData.works[i].to =
+                    formData.works[i].to === "Invalid date" ?
+                        "" :
+                        formData.works[i].to;
         }
-*/
+
         $.post("/update_self", formData);
     };
 
