@@ -11,6 +11,7 @@ class AuthController < ApplicationController
     if user_provider.login(user)
       redirect_to controller: 'home', action: 'index'
     else
+      flash['auth_error'] = 'Неа!'
       redirect_to action: 'index'
     end
 

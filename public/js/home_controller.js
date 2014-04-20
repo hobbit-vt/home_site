@@ -14,9 +14,9 @@ mainApp.filter('format_date', function() {
         var result = "";
         if(input){
 
-            result = moment(input).format(format)
+            result = moment(input).format(format);
         }
         return result;
 
     };
-})
+});

@@ -11,3 +11,9 @@
       <input type="submit" value="Submit"/>
     </p>
 <% end %>
+
+<% unless flash['auth_error'].nil? %>
+    <div class="error" style="color: red;">
+      <%= flash['auth_error'] %>
+    </div>
+<% end %>

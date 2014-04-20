@@ -1,5 +1,10 @@
 class Work
   include Mongoid::Document
+  validates :from,
+            :name,
+            :profession,
+            :occupation,
+            :presence => true
 
   field :from, type: DateTime
   field :to, type: DateTime

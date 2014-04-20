@@ -5,7 +5,6 @@ class UserProvider
   end
 
   def login(user)
-
     result = true
 
     if user.valid?
@@ -24,8 +23,7 @@ class UserProvider
       Rails.logger.info('User logged in failed. Bad user')
     end
 
-    return result
-
+    result
   end
 
   def logout
@@ -33,11 +31,11 @@ class UserProvider
   end
 
   def user_logged_in?
-    return !@session[:user_name].nil? ? true : false
+    !@session[:user_name].nil? ? true : false
   end
 
   def user_name
-    return @session[:user_name]
+    @session[:user_name]
   end
 
 

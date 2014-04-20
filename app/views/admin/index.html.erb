@@ -1,0 +1,179 @@
+<script src="/js/admin_controller.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+
+<div class="container jumbotron" ng-controller="adminCtrl">
+
+  <h1>Резюме</h1>
+
+  <div class="form-horizontal">
+
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">Имя:</label>
+
+      <div class="col-sm-3">
+        <input id="name" type="text" ng-model="mySelf.name" class="form-control">
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="date" class="col-sm-2 control-label">День рождения:</label>
+
+      <div class="col-sm-3">
+        <input id="date" type="date" ng-model="mySelf.date_birth" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city" class="col-sm-2 control-label">Город:</label>
+
+      <div class="col-sm-3">
+        <input id="city" type="text" ng-model="mySelf.city" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="col-sm-2 control-label">Город:</label>
+
+      <div class="col-sm-3">
+        <input id="phone" type="text" ng-model="mySelf.phone" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email:</label>
+
+      <div class="col-sm-3">
+        <input id="email" type="text" ng-model="mySelf.email" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vk" class="col-sm-2 control-label">VK:</label>
+
+      <div class="col-sm-3">
+        <input id="vk" type="text" ng-model="mySelf.vk" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Технологии:</label>
+
+      <div class="col-sm-3">
+        <div ng-repeat="tech in mySelf.technologies track by $index" class="input-group">
+          <input type="text" ng-model="tech" class="form-control">
+          <span class="input-group-addon btn" ng-click="delTech($index)">Delete</span>
+        </div>
+      </div>
+      <button class="btn btn-primary" ng-click="newTech()">Add</button>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Интересы:</label>
+
+      <div class="col-sm-3">
+        <div ng-repeat="interest in mySelf.interests track by $index" class="input-group">
+          <input type="text" ng-model="interest" class="form-control">
+          <span class="input-group-addon btn" ng-click="delInterest($index)">Delete</span>
+        </div>
+      </div>
+      <button class="btn btn-primary" ng-click="newInterest()">Add</button>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Учеба:</label>
+
+      <div class="col-sm-4">
+        <div ng-repeat="study in mySelf.studies track by $index">
+          <div class="form-group row">
+            <button class="btn btn-danger pull-right" style="margin-right: 15px;" ng-click="delStudy($index)">Delete</button>
+          </div>
+          <div class="form-group">
+            <label for="study-from" class="col-sm-3 control-label">Начало:</label>
+
+            <div class="col-sm-9">
+              <input id="study-from" type="date" ng-model="study.from" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="study-to" class="col-sm-3 control-label">Конец:</label>
+
+            <div class="col-sm-9">
+              <input id="study-to" type="date" ng-model="study.to" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="study-name" class="col-sm-3 control-label">Имя:</label>
+
+            <div class="col-sm-9">
+              <input id="study-name" type="text" ng-model="study.name" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="study-desc" class="col-sm-3 control-label">Описание:</label>
+
+            <div class="col-sm-9">
+              <textarea rows="6" id="study-desc" ng-model="study.desc" class="form-control">
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" ng-click="newStudy()">Add</button>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Работа:</label>
+
+      <div class="col-sm-4">
+        <div ng-repeat="work in mySelf.works track by $index">
+          <div class="form-group row">
+            <button class="btn btn-danger pull-right" style="margin-right: 15px;" ng-click="delWork($index)">Delete</button>
+          </div>
+          <div class="form-group">
+            <label for="work-from" class="col-sm-3 control-label">Начало:</label>
+
+            <div class="col-sm-9">
+              <input id="work-from" type="date" ng-model="work.from" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="work-to" class="col-sm-3 control-label">Конец:</label>
+
+            <div class="col-sm-9">
+              <input id="work-to" type="date" ng-model="work.to" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="work-name" class="col-sm-3 control-label">Имя:</label>
+
+            <div class="col-sm-9">
+              <input id="work-name" type="text" ng-model="work.name" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="work-profession" class="col-sm-3 control-label">Должность:</label>
+
+            <div class="col-sm-9">
+              <input id="work-profession" type="text" ng-model="work.profession" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="work-occupation" class="col-sm-3 control-label">Обязаности:</label>
+
+            <div class="col-sm-9">
+              <input id="work-occupation" type="text" ng-model="work.occupation" class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" ng-click="newWork()">Add</button>
+    </div>
+
+    <button class="btn btn-warning btn-lg" ng-click="update()" style="position: fixed; top: 0; left: 0;">Update</button>
+  </div>
+
+
+</div>

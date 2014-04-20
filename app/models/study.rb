@@ -1,5 +1,9 @@
 class Study
   include Mongoid::Document
+  validates :from,
+            :name,
+            :desc,
+            :presence => true
 
   field :from, type: DateTime
   field :to, type: DateTime
