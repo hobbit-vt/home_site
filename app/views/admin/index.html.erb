@@ -61,7 +61,7 @@
 
       <div class="col-sm-3">
         <div ng-repeat="tech in mySelf.technologies track by $index" class="input-group">
-          <input type="text" ng-model="tech" class="form-control">
+          <input type="text" ng-model="mySelf.technologies[$index]" class="form-control">
           <span class="input-group-addon btn" ng-click="delTech($index)">Delete</span>
         </div>
       </div>
@@ -73,7 +73,7 @@
 
       <div class="col-sm-3">
         <div ng-repeat="interest in mySelf.interests track by $index" class="input-group">
-          <input type="text" ng-model="interest" class="form-control">
+          <input type="text" ng-model="mySelf.interests[$index]" class="form-control">
           <span class="input-group-addon btn" ng-click="delInterest($index)">Delete</span>
         </div>
       </div>
