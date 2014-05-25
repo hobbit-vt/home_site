@@ -1,0 +1,134 @@
+$site_width: 940px;
+$left_side: 600px;
+$right_side: 200px; // + decorative padding
+
+@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
+
+body, h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 1em 'Helvetica Neue', Helvetica, Arial, serif;
+  line-height: 1.5;
+  background: #fafafa url("body-bg.jpg");
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+a {
+  color: #2879d0;
+  text-decoration: none;
+}
+a:hover {
+  color: #2268b2;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: disc inside;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+header {
+  background-image: url("header-bg.jpg");
+  color: #fff;
+  padding: 3em 0;
+  border-bottom: solid 1px #275da1;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+  h2 {
+    color: #9ddcff;
+    margin: 0;
+  }
+  a {
+    position: absolute;
+    right: 0;
+    top: -40px;
+    display: block;
+    width: 115px;
+    height: 170px;
+    background-image: url("header-logo.png");
+  }
+}
+
+#main {
+  border-top: solid 1px #fff;
+  padding-top: 30px;
+  section {
+    float: left;
+    width: $left_side;
+    h1 {
+      font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+      font-size: 2.8em;
+      letter-spacing: -1px;
+      color: #474747;
+    }
+    h1:before{
+      content: "/";
+      color: #9ddcff;
+      padding-right: 0.3em;
+      margin-left: -0.9em;
+    }
+    table {
+      tr {
+        td:first-child {
+          width: 6em;
+        }
+      }
+    }
+  }
+  aside {
+    float: right;
+    width: $right_side;
+    padding-left: 20px;
+    min-height: 504px;
+    background: url("sidebar-bg.jpg") no-repeat;
+  }
+}
+
+.powered {
+  display: block;
+  width: 202px;
+  height: 78px;
+  color: #fff;
+  position: relative;
+  font-size: 17px;
+  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  span {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+.powered:hover {
+  color: #fff;
+}
+.powered.ruby {
+  background: url("powered-ruby.png");
+}
+.powered.mongo {
+  background: url("powered-mongo.png");
+}
+
+
+.inner {
+  width: $site_width;
+  margin: 0 auto;
+  position: relative;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

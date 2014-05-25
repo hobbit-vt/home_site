@@ -13,7 +13,7 @@ my_self.date_birth = DateTime.new(1990, 3, 24)
 my_self.technologies = %w(C# JavaScript)
 my_self.interests = %w(PostgreSQL MongoDB GameDevelopment)
 my_self.email = 'tohobbit@gmail.com'
-my_self.phone = '8 (960) 50-50-613'
+my_self.phone = '+7 (960) 50-50-613'
 my_self.vk = 'http://vk.com/id136179396'
 
 my_self.save!
