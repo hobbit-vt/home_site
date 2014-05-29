@@ -1,111 +1,70 @@
-<header>
-  <div class="inner">
-    <h1>
-      Hi there! This is my web site =)
-    </h1>
-    <h2>
-      Golov Victor
-    </h2>
-    <a href="/"></a>
-  </div>
-</header>
+<h1>Who am I</h1>
+<p>
+  Меня зовут Виктор. Сейчас мне <%= @years_old %>. <br>
+  Живу в городе Фурманов, работаю программистом в городе Иваново. <br>
+  Иногда рисую всякую хрень. =)
+</p>
 
-<div id="main">
-  <div class="inner clearfix">
-    <section>
-      <h1>Who am I</h1>
-      <p>
-        Меня зовут Виктор. Сейчас мне <%= @years_old %>. <br>
-        Живу в городе Фурманов, работаю программистом в городе Иваново. <br>
-        Иногда рисую всякую хрень. =)
-      </p>
+<h1>Technologies</h1>
+<p>
+  Технологиями, которыми я владею на приемлемом уровне, использую их в каждодневоной разработке:
+</p>
+<ul>
+  <% @self.technologies.each do |tech| %>
+    <li>
+      <%= tech %>
+    </li>
+  <% end %>
+</ul>
 
-      <h1>Technologies</h1>
-      <p>
-        Технологиями, которыми я владею на приемлемом уровне, использую их в каждодневоной разработке:
-      </p>
-      <ul>
-        <% @self.technologies.each do |tech| %>
-          <li>
-            <%= tech %>
-          </li>
-        <% end %>
-      </ul>
+<h1>Interests</h1>
+<p>
+  То что мне интеренсно, хотелось бы воспользоваться или изучить подробнее:
+</p>
+<ul>
+  <% @self.interests.each do |interest| %>
+    <li>
+      <%= interest %>
+    </li>
+  <% end %>
+</ul>
 
-      <h1>Interests</h1>
-      <p>
-        То что мне интеренсно, хотелось бы воспользоваться или изучить подробнее:
-      </p>
-      <ul>
-        <% @self.interests.each do |interest| %>
-          <li>
-            <%= interest %>
-          </li>
-        <% end %>
-      </ul>
+<h1>Latest jobs</h1>
+<p>
+  Последние места, где я работал:
+</p>
+<ul>
+  <% @self.works.reverse.each do |work| %>
+    <li>
+      Компания - "<%= work.name %>", занятие - <%= work.occupation %>.
+    </li>
+  <% end %>
+</ul>
 
-      <h1>Latest jobs</h1>
-      <p>
-        Последние места, где я работал:
-      </p>
-      <ul>
-        <% @self.works.reverse.each do |work| %>
-          <li>
-            Компания - "<%= work.name %>", занятие - <%= work.occupation %>.
-          </li>
-        <% end %>
-      </ul>
-
-      <h1>Contacts</h1>
-      <table>
-        <tr>
-          <td>
-            Почта:
-          </td>
-          <td>
-            <a href="mailto:<%= @self.email %>"><%= @self.email %></a>, или <a href="/feedback">Фидбэк</a> на сайте
-          </td>
-        </tr>
-        <tr>
-          <td>
-            VK:
-          </td>
-          <td>
-            <a href="<%= @self.vk %>" target="_blank"><%= @self.vk %></a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Телефон:
-          </td>
-          <td>
-            <%= @self.phone %>
-          </td>
-        </tr>
-      </table>
-    </section>
-
-    <aside>
-      <p>
-        <a href="/feedback">Связаться</a> со мной
-      </p>
-      <p>
-        Powered by <br>
-
-        <a href="/" class="powered ruby">
-          <span>Ruby on Rails</span>
-        </a>
-        <a href="/" class="powered mongo">
-          <span>MongoDB</span>
-        </a>
-      </p>
-      
-      
-      <% if user_provider.user_logged_in? %>
-        <h1>
-          Hello <%= user_provider.user_name %>
-        </h1>
-      <% end %>
-    </aside>
-  </div>
-</div>
+<h1>Contacts</h1>
+<table>
+  <tr>
+    <td>
+      Почта:
+    </td>
+    <td>
+      <a href="mailto:<%= @self.email %>"><%= @self.email %></a>, или <%= link_to 'Фидбэк', feedback_path %> на сайте
+    </td>
+  </tr>
+  <tr>
+    <td>
+      VK:
+    </td>
+    <td>
+      <a href="<%= @self.vk %>" target="_blank"><%= @self.vk %></a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Телефон:
+    </td>
+    <td>
+      <%= @self.phone %>
+    </td>
+  </tr>
+</table>

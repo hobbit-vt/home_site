@@ -1,0 +1,19 @@
+<h1>Feedback</h1>
+
+<%= form_tag method: 'post' do %>
+  <div class="form-row">
+    <strong><label for="name">Ваше имя:</label></strong>
+  </div>
+  <div class="form-row">
+    <input id="name" type="text" name="name" class="width100"/>
+  </div>
+  <div class="form-row">
+    <strong><label for="text">Сообщение:</label></strong>
+  </div>
+  <div class="form-row">
+    <textarea name="text" id="text" cols="30" rows="10" class="width100"></textarea>
+  </div>
+  <div class="form-row">
+    <input type="submit" value="Отпрвить" class="btn" />
+  </div>
+<% end %>

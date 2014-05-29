@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Голов Виктор<%= @title %></title>
+  <meta name="description" content="Голов Виктор. Моя домашнаяя страница" />
+  <meta name="keywords" content="Голов, Виктор, резюме, домашнаяя страница" />
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <div class="inner">
+      <h1>
+        Hi there! This is my web site =)
+      </h1>
+      <h2>
+        Golov Victor
+      </h2>
+      <a href="/"></a>
+    </div>
+  </header>
+
+  <div id="main">
+    <div class="inner clearfix">
+
+      <section>
+        <%= yield %>
+      </section>
+
+      <aside>
+        <%= render "shared/aside" %>
+      </aside>
+
+    </div>
+  </div>
+
+</body>
+</html>

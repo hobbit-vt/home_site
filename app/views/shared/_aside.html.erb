@@ -1,0 +1,21 @@
+<p>
+  <%= link_to "Связаться", feedback_path %> со мной
+</p>
+<p>
+  Powered by: <br>
+
+  <a href="http://rubyonrails.org/" target="_blank" class="powered ruby">
+    <span>Ruby on Rails</span>
+  </a>
+  <a href="http://www.mongodb.com/" target="_blank" class="powered mongo">
+    <span>MongoDB</span>
+  </a>
+</p>
+
+
+<% if user_provider.user_logged_in? %>
+  <h1>
+    Hello <%= user_provider.user_name %>
+    <%= link_to 'root', admin_path %>
+  </h1>
+<% end %>

@@ -1,7 +1,8 @@
 class AuthController < ApplicationController
+  layout 'front'
 
   def index
-    
+    @title = '::Sign in'
   end
 
   def login

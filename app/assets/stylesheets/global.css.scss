@@ -4,7 +4,7 @@ $right_side: 200px; // + decorative padding
 
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 
-body, h1, h2, h3, h4, h5, h6, p, ul {
+body, h1, h2, h3, h4, h5, h6, p, ul, input {
   margin: 0;
   padding: 0;
 }
@@ -14,8 +14,10 @@ body {
   line-height: 1.5;
   background: #fafafa url("body-bg.jpg");
   font-weight: 400;
+  font-size: 14px;
   color: #666;
   margin-bottom: 30px;
+  overflow-y: scroll;
 }
 
 a {
@@ -39,7 +41,7 @@ ul {
 header {
   background-image: url("header-bg.jpg");
   color: #fff;
-  padding: 3em 0;
+  padding: 4em 0;
   border-bottom: solid 1px #275da1;
   font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
   h1 {
@@ -53,7 +55,7 @@ header {
   a {
     position: absolute;
     right: 0;
-    top: -40px;
+    top: -45px;
     display: block;
     width: 115px;
     height: 170px;
@@ -132,3 +134,9 @@ header {
   display: table;
   clear: both;
 }
+
+.width100 {
+  width: 100%;
+}
+
+

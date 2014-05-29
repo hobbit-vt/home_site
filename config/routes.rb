@@ -1,7 +1,9 @@
 RubyBegin::Application.routes.draw do
   root 'home#index'
   
-  get 'home/index'
+  get '/feedback', to: 'feedback#index'
+  get '/feedback/congratulations'
+  post '/feedback', to: 'feedback#add'
 
   get '/login', to: 'auth#index'
   post '/login', to: 'auth#login'
