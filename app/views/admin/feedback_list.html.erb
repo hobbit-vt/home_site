@@ -1,0 +1,21 @@
+<script src="/js/feedback_controller.js"></script>
+
+<div style="text-align: center; position: absolute; width: 100%;">
+  <%= link_to 'Резюме', admin_path %>
+</div>
+
+<div class="container jumbotron" ng-controller="feedbackCtrl">
+
+  <h1>Отзывы <small>({{feedbackList.length}} отзывов)</small></h1>
+
+  <div ng-repeat="feedback in feedbackList track by $index">
+    <h4>
+      <span class="btn btn-danger btn-xs" ng-click="delEntry($index)">&times;</span>
+      {{feedback.name}}
+    </h4>
+    <p>
+      {{feedback.text}}
+    </p>
+  </div>
+
+</div>

@@ -1,6 +1,6 @@
 class FeedbackController < ApplicationController
   layout 'front'
-  before_filter :reject_non_auth_request, except: [:index, :congratulations]
+  before_filter :reject_non_auth_request, only: [:remove, :list]
 
   def index
     @title = '::Feedback'
@@ -12,16 +12,29 @@ class FeedbackController < ApplicationController
 
   def add
     feedback = Feedback.new(params.permit(:name, :text))
-    feedback.save!
+
+    if feedback.valid?
+      feedback.save!
+      FeedbackMailer.entry_added(feedback).deliver
+    end
 
     redirect_to action: 'congratulations'
   end
 
   def remove
+    id = params[:id]
+    feedback = Feedback.find(id)
 
+    if feedback.nil?
+      render json: "can't find"
+    else
+      feedback.delete
+      render json: "ok"
+    end
   end
 
-  def get_all
+
+  def list
     all_feedback = Feedback.all.to_a
 
     render json: all_feedback

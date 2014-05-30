@@ -2,8 +2,10 @@ RubyBegin::Application.routes.draw do
   root 'home#index'
   
   get '/feedback', to: 'feedback#index'
-  get '/feedback/congratulations'
   post '/feedback', to: 'feedback#add'
+  get '/feedback/congratulations'
+  get '/feedback/list'
+  post '/feedback/remove'
 
   get '/login', to: 'auth#index'
   post '/login', to: 'auth#login'
@@ -13,6 +15,8 @@ RubyBegin::Application.routes.draw do
   post '/update_self', to: 'self_json#update_self'
 
   get '/admin', to: 'admin#index'
+  get '/admin/feedback_list'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

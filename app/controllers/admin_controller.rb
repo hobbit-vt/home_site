@@ -5,4 +5,8 @@ class AdminController < ApplicationController
 
   end
 
+  def feedback_list
+    
+  end
+
 end

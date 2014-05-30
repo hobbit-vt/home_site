@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html ng-app="mainApp">
 <head>
-  <title>Голов Виктор. Моя домашнаяя страница</title>
+  <title>hobbit_admin</title>
   <meta name="description" content="Голов Виктор. Моя домашнаяя страница" />
   <meta name="keywords" content="Голов, Виктор, резюме, домашнаяя страница" />
 
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
 
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
 
   <script type="text/javascript" charset="utf-8">
       var mainApp = angular.module('mainApp', []);
@@ -18,9 +19,9 @@
 
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-no-turbolink>
 	
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
